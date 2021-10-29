@@ -1,0 +1,19 @@
+package com.example.catdemo.configuration;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+import java.time.Clock;
+
+@Configuration
+@ConditionalOnProperty
+public class ClockConfig {
+
+    @Bean
+    @Profile("!test")
+    public Clock getActiveClock() {
+        return Clock.systemUTC();
+    }
+}
