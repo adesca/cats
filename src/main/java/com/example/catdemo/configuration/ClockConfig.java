@@ -8,11 +8,9 @@ import org.springframework.context.annotation.Profile;
 import java.time.Clock;
 
 @Configuration
-@ConditionalOnProperty
 public class ClockConfig {
 
     @Bean
-    @Profile("!test")
     public Clock getActiveClock() {
         return Clock.systemUTC();
     }
